@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace GwbWebApi.Context.Data
+namespace GwbWebApi.Context.Data.Migrations
 {
     public partial class InitialCreate : Migration
     {
@@ -12,7 +12,10 @@ namespace GwbWebApi.Context.Data
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(maxLength: 50, nullable: true),
+                    Email = table.Column<string>(maxLength: 100, nullable: true),
+                    Message = table.Column<string>(maxLength: 1000, nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

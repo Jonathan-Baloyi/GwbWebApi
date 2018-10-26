@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace GwbWebApi.Context.Data
+namespace GwbWebApi.Context.Data.Migrations
 {
     [DbContext(typeof(GwbContext))]
     partial class GwbContextModelSnapshot : ModelSnapshot
@@ -24,7 +24,16 @@ namespace GwbWebApi.Context.Data
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Email")
+                        .HasMaxLength(100);
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("Message")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
