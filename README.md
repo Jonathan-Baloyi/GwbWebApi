@@ -1,4 +1,6 @@
 
+## Database Migrations
+
 Database migrations are done using Entity Framework Migrations (currently only supported via package manager console commands or the .Net CLI)
 
 Naming Conventions
