@@ -47,7 +47,7 @@ autorest --csharp --input-file=<swagger.json url or file> --output-folder=<outpu
 Naming Conventions
 Use the correct namespace
 For example (generating a client to the Authentication service from the Users service):
-autorest --csharp --input-file=http://localhost:5004/swagger/v1/swagger.json --output-folder=./Services/Authentication/ --AddCredentials true --namespace=Allegra.Service.Users.Services.Authentication --override-client-name=AuthenticationApiClient
+autorest --csharp --input-file=http://localhost:5004/swagger/v1/swagger.json --output-folder=./Services/Authentication/ --AddCredentials true --namespace=Bla.Service.Users.Services.Authentication --override-client-name=AuthenticationApiClient
 
 ##
 
