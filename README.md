@@ -33,6 +33,24 @@ Add-Migration <migration-name> -o Data\Migrations\Authentication -c Authenticati
 Add-Migration <migration-name> -o Data\Migrations\Configuration -c ConfigurationDbContext
 Add-Migration <migration-name> -o Data\Migrations\PersistedGrant -c PersistedGrantDbContext
 
+
+## Consume another service
+Required Tools
+We will be generating clients to other services using AutoRest.
+
+Swappi ng this out for https://github.com/RSuter/NSwag/wiki/NSwagStudio 
+
+Generating a Client
+Issue the following command from within the relevant Service project root folder that the client is being generated for:
+autorest --csharp --input-file=<swagger.json url or file> --output-folder=<output folder> --AddCredentials true --namespace=<name space> --override-client-name=<client name>
+
+Naming Conventions
+Use the correct namespace
+For example (generating a client to the Authentication service from the Users service):
+autorest --csharp --input-file=http://localhost:5004/swagger/v1/swagger.json --output-folder=./Services/Authentication/ --AddCredentials true --namespace=Allegra.Service.Users.Services.Authentication --override-client-name=AuthenticationApiClient
+
+##
+
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
 
 When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
